@@ -2,14 +2,14 @@
 members = ["example/server", "example/xelf"]
 
 [package]
-name = "userspace"
+name = "kernelspace"
 publish = true
 version = "0.1.0"
 edition = "2024"
 authors = ["José Gois <ze.gois.00@gmail.com>"]
-description = "Standard library for userspace applications"
+description = "Standard library for kernelspace"
 documentation = "https://docs.rs/bitflags"
-repository = "https://github.com/ze-gois/rust_userspace"
+repository = "https://github.com/ze-gois/rust_kernelspace"
 readme = "README.md"
 homepage = "https://userspace.builders"
 license-file = "LICENSE"
@@ -17,14 +17,14 @@ keywords = ["architecture", "operating_system"]
 categories = ["no-std", "os"]
 
 [lib]
-name = "userspace"
+name = "kernelspace"
 path = "src/library.rs"
 test = false
 
 [dependencies]
 
 [workspace.dependencies]
-userspace = { path = ".", version = "0.1.0" }
+kernelspace = { path = ".", version = "0.1.0" }
 xelf = { path = "example/xelf", version = "0.1.0" }
 
 [build-dependencies]
