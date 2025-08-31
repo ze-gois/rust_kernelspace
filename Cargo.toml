@@ -27,7 +27,7 @@ path = "src/entry.rs"
 test = false
 
 [dependencies]
-userspace = { version = "*" }
+userspace = { version = "0.1.120" }
 
 [workspace.dependencies]
 kernelspace = { path = ".", version = "0.1.0" }
