@@ -1,6 +1,6 @@
 use core::panic::PanicInfo;
 
-pub use crate::info;
+pub use userspace::info;
 
 #[panic_handler]
 pub fn panic(info: &PanicInfo) -> ! {
@@ -18,7 +18,7 @@ pub fn panic(info: &PanicInfo) -> ! {
         if count == 0 {
             info!("..:");
             // unsafe { core::arch::asm!("call entry") };
-            crate::target::os::syscall::exit(23);
+            userspace::target::os::syscall::exit(23);
         }
     }
 }

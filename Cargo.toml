@@ -1,10 +1,10 @@
 [workspace]
-members = ["example/server", "example/xelf"]
+members = []
 
 [package]
 name = "kernelspace"
 publish = true
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 authors = ["José Gois <ze.gois.00@gmail.com>"]
 description = "Standard library for kernelspace"
@@ -21,11 +21,16 @@ name = "kernelspace"
 path = "src/library.rs"
 test = false
 
+[[bin]]
+name = "kernelspace"
+path = "src/entry.rs"
+test = false
+
 [dependencies]
+userspace = { version = "*" }
 
 [workspace.dependencies]
 kernelspace = { path = ".", version = "0.1.0" }
-xelf = { path = "example/xelf", version = "0.1.0" }
 
 [build-dependencies]
 cc = "1.0"
