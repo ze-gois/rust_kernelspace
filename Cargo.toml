@@ -27,10 +27,10 @@ path = "src/entry.rs"
 test = false
 
 [dependencies]
-userspace = { version = "0.1.120" }
+userspace = { version = "*" }
 
 [workspace.dependencies]
-kernelspace = { path = ".", version = "0.1.0" }
+kernelspace = { path = "." }
 
 [build-dependencies]
 cc = "1.0"
