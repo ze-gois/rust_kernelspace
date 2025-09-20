@@ -1,6 +1,3 @@
-[workspace]
-members = []
-
 [package]
 name = "kernelspace"
 publish = true
@@ -29,14 +26,5 @@ test = false
 [dependencies]
 userspace = { version = "*" }
 
-[workspace.dependencies]
-kernelspace = { path = "." }
-
 [build-dependencies]
 cc = "1.0"
-
-[profile.dev]
-panic = "abort"
-
-[profile.release]
-panic = "abort"
