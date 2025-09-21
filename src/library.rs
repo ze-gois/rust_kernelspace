@@ -9,7 +9,7 @@ pub struct Origin;
 pub mod license;
 pub mod modules;
 
-userspace::trait_implement_primitives!();
+ample::trait_implement_primitives!();
 // impl<F: traits::Bytes<crate::target::Origin, crate::target::Origin>>
 //     traits::Bytes<crate::Origin, crate::Origin> for F
 // {

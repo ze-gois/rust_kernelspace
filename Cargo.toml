@@ -29,4 +29,4 @@ userspace = { path = "../userspace" }
 
 [build-dependencies]
 cc = "1.0"
-userspace_build = { path = "../userspace_build" }
+userspace = { path = "../userspace" }
