@@ -1,10 +1,9 @@
 [package]
 name = "kernelspace"
-publish = true
 version = "0.1.1"
 edition = "2024"
 authors = ["José Gois <ze.gois.00@gmail.com>"]
-description = "Standard library for kernelspace"
+description = "kernelspace library"
 documentation = "https://docs.rs/bitflags"
 repository = "https://github.com/ze-gois/rust_kernelspace"
 readme = "README.md"
@@ -12,16 +11,49 @@ homepage = "https://userspace.builders"
 license-file = "LICENSE"
 keywords = ["architecture", "operating_system"]
 categories = ["no-std", "os"]
+publish = true
+exclude = []
+include = []
+rust-version = "1.85"
+autobins = true
+autotests = true
+autobenches = true
+resolver = "2"
+# license = "BSD-3 Clause"
+# links = ""
+
+[package.metadata]
+mode = "unoticed"
+note = "esta é uma crate padrão"
+whatever = 42
+
+[package.metadata.debug]
+mode = "debug"
+
+[package.metadata.release]
+metadata = "required"
+# pre-release-hook = "./scripts/pre_release.sh"
+# pre-release-replacements = []
 
 [lib]
 name = "kernelspace"
 path = "src/library.rs"
 test = false
+crate-type = ["lib"]
+doctest = true
+bench = false
+required-features = []        # nenhuma feature obrigatória
+doc = true                     # gera docs
 
 [[bin]]
 name = "kernelspace"
 path = "src/entry.rs"
+# crate-type = ["bin"]
 test = false
+doctest = true
+bench = false
+required-features = []        # nenhuma feature obrigatória
+doc = true                     # gera docs
 
 [dependencies]
 ample = { path = "../ample" }
@@ -29,4 +61,36 @@ userspace = { path = "../userspace" }
 
 [build-dependencies]
 cc = "1.0"
-userspace = { path = "../userspace" }
+userspace = { path = "../userspace", features = ["with_std"] }
+
+[features]
+default = []
+all = []
+
+[badges]
+github-actions = { repository = "ze-gois/rust_kernelspace" }
+# # travis-ci = { repository = "ze-gois/rust_ample", branch = "main" }
+
+[profile.dev]
+opt-level = 0
+debug = true
+overflow-checks = true
+lto = false
+panic = "unwind"
+incremental = true
+codegen-units = 256
+debug-assertions = true
+split-debuginfo = "packed"
+
+[profile.release]
+opt-level = 3
+debug = false
+overflow-checks = true
+lto = true
+panic = "abort"
+codegen-units = 1
+incremental = false
+debug-assertions = false
+split-debuginfo = "unpacked"
+rpath = false
+strip = "debuginfo"
